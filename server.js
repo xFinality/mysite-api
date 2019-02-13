@@ -24,6 +24,18 @@ app.post('/projects', (req,res) => {
 		.catch(err => res.status(400).json('No projects'))
 })
 
+app.post('/AboutText', (req,res) => {
+	db.select('*').from('AboutText')
+		.then(texts => res.json(texts))
+		.catch(err => res.status(400).json('No texts'))
+})
+
+app.post('/aboutSkills', (req,res) => {
+	db.select('*').from('AboutSkills')
+		.then(skills => res.json(skills))
+		.catch(err => res.status(400).json('No skills'))
+})
+
 app.listen(3000, () => {
 	console.log('server runner on 3000');
 });
