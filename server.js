@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 app.post('/projects', (req,res) => {
-	db.select('*').from('projects')
+	db.select('*').from('projects').orderBy('id')
 		.then(projects => res.json(projects))
 		.catch(err => res.status(400).json('No projects'))
 })
